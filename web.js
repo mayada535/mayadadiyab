@@ -1,153 +1,49 @@
 // =========================
-// Safe Helper
+// Assistant Logic (REAL)
 // =========================
-const $ = (id) => document.getElementById(id);
+const assistantForm = document.getElementById('assistant-form');
+const assistantInput = document.getElementById('assistant-input');
+const assistantMessages = document.getElementById('assistant-messages');
 
-// =========================
-// URL Params
-// =========================
-const urlParams = new URLSearchParams(window.location.search);
-const showAdmin = urlParams.get('admin') === 'true';
+function loadStoredMessages() {
+  const data = JSON.parse(localStorage.getItem('assistantMessages') || '[]');
+  data.forEach(m => addMessage(m.text, m.type));
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  // =========================
-  // Admin Page Handling
-  // =========================
-  if (showAdmin) {
-    document.body.classList.add('admin-page');
-    $('loginContainer') && ($('loginContainer').style.display = 'block');
-    $('dashboardContainer') && ($('dashboardContainer').style.display = 'none');
-    document.querySelector('main') && (document.querySelector('main').style.display = 'none');
-    document.querySelector('nav') && (document.querySelector('nav').style.display = 'none');
-  }
-
-  // =========================
-  // Language Switch
-  // =========================
-  const langBtn = $('lang-switch');
-
-  function setLanguage(lang) {
-    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-      const text = lang === 'en' ? el.dataset.en : el.dataset.ar;
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = text;
-      } else {
-        el.innerHTML = text;
-      }
-    });
-
-    document.documentElement.lang = lang;
-    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.body.classList.toggle('rtl', lang === 'ar');
-
-    if (langBtn) {
-      langBtn.textContent = lang === 'ar' ? 'EN' : 'العربية';
-      langBtn.dataset.lang = lang;
-    }
-  }
-
-  if (langBtn) {
-    setLanguage(langBtn.dataset.lang || 'en');
-    langBtn.addEventListener('click', () => {
-      setLanguage(langBtn.dataset.lang === 'en' ? 'ar' : 'en');
-    });
-  }
-
-  // =========================
-  // Fade In Sections
-  // =========================
-  const sections = document.querySelectorAll('.section');
-  if (sections.length) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('fade-in'));
-    }, { threshold: 0.15 });
-
-    sections.forEach(s => io.observe(s));
-  }
-
-  // =========================
-  // Portfolio Filters
-  // =========================
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.style.display =
-          filter === 'all' || card.dataset.category === filter ? '' : 'none';
-      });
-    });
+function saveMessage(text, type) {
+  const data = JSON.parse(localStorage.getItem('assistantMessages') || '[]');
+  data.push({
+    text,
+    type,
+    time: new Date().toLocaleString()
   });
+  localStorage.setItem('assistantMessages', JSON.stringify(data));
+}
 
-  // =========================
-  // Modal
-  // =========================
-  const modal = $('modal');
-  const modalClose = modal?.querySelector('.modal-close');
+function addMessage(text, type = 'user') {
+  const li = document.createElement('li');
+  li.className = `msg ${type}`;
+  li.textContent = text;
+  assistantMessages.appendChild(li);
+  assistantMessages.scrollTop = assistantMessages.scrollHeight;
+}
 
-  function closeModal() {
-    modal?.classList.remove('active');
-  }
+assistantForm?.addEventListener('submit', e => {
+  e.preventDefault();
+  const msg = assistantInput.value.trim();
+  if (!msg) return;
 
-  modalClose?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', e => e.target === modal && closeModal());
+  addMessage(msg, 'user');
+  saveMessage(msg, 'user');
 
-  document.querySelectorAll('.view-more-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const card = e.target.closest('.project-card');
-      if (!card || !modal) return;
-      $('modal-title').textContent = card.querySelector('h3')?.innerText || '';
-      $('modal-description').textContent = card.querySelector('p')?.innerText || '';
-      modal.classList.add('active');
-    });
-  });
+  assistantInput.value = '';
 
-  // =========================
-  // Contact Form (Local Only)
-  // =========================
-  const form = $('contact-form');
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      alert('✔️ تم استلام الرسالة (وضع العرض فقط)');
-      form.reset();
-    });
-  }
-
-  // =========================
-  // Assistant (Safe)
-  // =========================
-  const assistantToggle = $('assistant-toggle');
-  const assistant = $('assistant');
-  const assistantClose = $('assistant-close');
-
-  function openAssistant() {
-    assistant?.setAttribute('aria-hidden', 'false');
-    assistantToggle && (assistantToggle.style.display = 'none');
-  }
-
-  function closeAssistant() {
-    assistant?.setAttribute('aria-hidden', 'true');
-    assistantToggle && (assistantToggle.style.display = '');
-  }
-
-  assistantToggle?.addEventListener('click', openAssistant);
-  assistantClose?.addEventListener('click', closeAssistant);
-
+  setTimeout(() => {
+    const reply = '✅ تم استلام طلبك، سأتواصل معك قريبًا.';
+    addMessage(reply, 'bot');
+    saveMessage(reply, 'bot');
+  }, 700);
 });
 
-// =========================
-// Admin Login (Optional)
-// =========================
-const ADMIN_PASSWORD = 'admin123';
+loadStoredMessages();
 
-window.addEventListener('load', () => {
-  if ($('loginContainer')) {
-    localStorage.getItem('adminLoggedIn')
-      ? $('dashboardContainer')?.classList.add('show')
-      : $('loginContainer')?.classList.add('show');
-  }
-});
