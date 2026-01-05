@@ -1,3 +1,16 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp } 
+from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "PUT_YOUR_KEY_HERE",
+  authDomain: "PROJECT_ID.firebaseapp.com",
+  projectId: "PROJECT_ID",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 // web.js - restores interactive features: language switch, filters, modal, fade-ins, and form handling
 document.addEventListener('DOMContentLoaded', () => {
   const langBtn = document.getElementById('lang-switch');
@@ -544,3 +557,4 @@ window.addEventListener('load', () => {
     }
   }
 });
+
