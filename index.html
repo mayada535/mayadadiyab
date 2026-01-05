@@ -5,83 +5,222 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mayada Diyab - IT Student, Web Developer, and AI Enthusiast. Explore my portfolio and get in touch.">
     <title>Mayada Diyab - Personal Website</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lato:wght@400;700&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="web.css">
 </head>
 <body>
-
-<nav id="navbar">
-    <div class="nav-container">
-        <div class="logo">Mayada Diyab</div>
-        <div class="nav-links">
-            <a href="#home" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a>
-            <a href="#about" class="nav-link" data-en="About" data-ar="من أنا">About</a>
-            <a href="#portfolio" class="nav-link" data-en="Portfolio" data-ar="المشاريع">Portfolio</a>
-            <a href="#contact" class="nav-link" data-en="Contact" data-ar="التواصل">Contact</a>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Mayada Diyab</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="#about" class="nav-link" data-en="About" data-ar="من أنا">About</a>
+                <a href="#portfolio" class="nav-link" data-en="Portfolio" data-ar="المشاريع">Portfolio</a>
+                <a href="#contact" class="nav-link" data-en="Contact" data-ar="التواصل">Contact</a>
+            </div>
+            <button id="lang-switch" data-lang="en" aria-label="Switch Language">العربية</button>
         </div>
-        <button id="lang-switch" data-lang="en">العربية</button>
+    </nav>
+
+    <main>
+        <section id="home" class="section">
+            <div class="container">
+                <h1 id="home-title" data-en="Hi, I'm Mayada Diyab" data-ar="مرحبًا! أنا ميادة دياب">Hi, I'm Mayada Diyab</h1>
+                <h2 id="home-subtitle" data-en="IT Student | Aspiring Web Developer | AI Enthusiast" data-ar="طالبة تقنية المعلومات | مطورة ويب طموحة | مهتمة بالذكاء الاصطناعي"></h2>
+                <p id="home-intro" data-en="Welcome to my personal website! I create modern and responsive websites using HTML, CSS, JavaScript, and AI tools. I’m also working on my own AI project called &quot;Kazooha&quot;. Explore my skills, projects, and contact info below." data-ar="مرحبًا بك في موقعي الشخصي! أصنع مواقع حديثة ومتجاوبة باستخدام HTML وCSS وJavaScript وأدوات الذكاء الاصطناعي. أنا أيضًا أعمل على مشروع الذكاء الاصطناعي الخاص بي باسم &quot;Kazooha&quot;. استعرض مهاراتي ومشاريعي ووسائل التواصل معي أدناه."></p>
+                <a href="#about" class="cta-btn" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 id="about-header" data-en="About Me" data-ar="من أنا">About Me</h2>
+                <p id="about-content" data-en="Hello! I'm Mayada, a fourth-year IT student passionate about web development and AI. I enjoy creating websites that are both functional and visually appealing. Currently, I’m developing my own AI project called &quot;Kazooha&quot;. I love learning new technologies and improving my skills every day." data-ar="مرحبًا! أنا ميادة، طالبة في السنة الرابعة بتخصص تقنية المعلومات، شغوفة بتطوير الويب والذكاء الاصطناعي. أحب صنع مواقع تجمع بين الأداء الجيد والمظهر الجميل. حاليًا، أعمل على تطوير مشروع الذكاء الاصطناعي الخاص بي باسم &quot;Kazooha&quot;. أحب تعلم تقنيات جديدة وتحسين مهاراتي يوميًا."></p>
+                <h3 id="skills-header" data-en="Skills" data-ar="المهارات">Skills</h3>
+                <ul id="skills-list">
+                    <li><i class="fas fa-code"></i> <span data-en="HTML, CSS, JavaScript (Beginner)" data-ar="HTML، CSS، JavaScript (مبتدئة)">HTML, CSS, JavaScript (Beginner)</span></li>
+                    <li><i class="fas fa-brain"></i> <span data-en="AI Tools" data-ar="أدوات الذكاء الاصطناعي">AI Tools</span></li>
+                    <li><i class="fas fa-laptop-code"></i> <span data-en="Front-End Development" data-ar="تطوير الواجهة الأمامية">Front-End Development</span></li>
+                    <li><i class="fas fa-puzzle-piece"></i> <span data-en="Problem Solving" data-ar="حل المشكلات">Problem Solving</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2 id="portfolio-header" data-en="My Projects" data-ar="مشاريعي">My Projects</h2>
+                <div class="pricing-banner">
+                    <p data-en="Services: Websites & AI projects starting from $50 to $500 — simple to professional" data-ar="الخدمات: مواقع إلكترونية ومشاريع ذكاء اصطناعي ابتداءً من 50$ إلى 500$ — من بسيط إلى احترافي">Services: Websites & AI projects starting from <strong>$50</strong> to <strong>$500</strong> — simple to professional</p>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" data-en="All" data-ar="الكل">All</button>
+                    <button class="filter-btn" data-filter="web" data-en="Web" data-ar="ويب">Web</button>
+                    <button class="filter-btn" data-filter="ai" data-en="AI" data-ar="ذكاء اصطناعي">AI</button>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="project-card" data-category="ai">
+                        <img src="https://picsum.photos/seed/kazooha/800/450" alt="Kazooha AI Website screenshot">
+                        <div class="project-info">
+                            <h3 data-en="Kazooha AI Website" data-ar="مشروع Kazooha">Kazooha AI Website</h3>
+                            <p data-en="My own AI project currently in development, showcasing innovative AI tools and interactive features." data-ar="مشروعي الخاص بالذكاء الاصطناعي قيد التطوير حاليًا، يعرض أدوات AI مبتكرة وميزات تفاعلية.">My own AI project currently in development, showcasing innovative AI tools and interactive features.</p>
+                            <button class="view-more-btn" data-en="View More" data-ar="عرض المزيد">View More</button>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <img src="https://picsum.photos/seed/blog/800/450" alt="Personal Blog Website screenshot">
+                        <div class="project-info">
+                            <h3 data-en="Personal Blog Website" data-ar="موقع مدونة شخصية">Personal Blog Website</h3>
+                            <p data-en="A responsive blog built with HTML, CSS, and JavaScript." data-ar="مدونة متجاوبة تم إنشاؤها باستخدام HTML وCSS وJavaScript.">A responsive blog built with HTML, CSS, and JavaScript.</p>
+                            <button class="view-more-btn" data-en="View More" data-ar="عرض المزيد">View More</button>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="ai">
+                        <img src="https://picsum.photos/seed/landing/800/450" alt="AI Generated Landing Page screenshot">
+                        <div class="project-info">
+                            <h3 data-en="AI Generated Landing Page" data-ar="صفحة هبوط باستخدام الذكاء الاصطناعي">AI Generated Landing Page</h3>
+                            <p data-en="A landing page designed using AI tools." data-ar="صفحة هبوط مصممة باستخدام أدوات AI.">A landing page designed using AI tools.</p>
+                            <button class="view-more-btn" data-en="View More" data-ar="عرض المزيد">View More</button>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <img src="https://picsum.photos/seed/cv/800/450" alt="CV Portfolio Site screenshot">
+                        <div class="project-info">
+                            <h3 data-en="CV Portfolio Site" data-ar="موقع سيرة ذاتية">CV Portfolio Site</h3>
+                            <p data-en="A fully responsive CV site showcasing my skills and projects." data-ar="موقع متجاوب بالكامل لعرض مهاراتي ومشاريعي.">A fully responsive CV site showcasing my skills and projects.</p>
+                            <button class="view-more-btn" data-en="View More" data-ar="عرض المزيد">View More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 id="contact-header" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h2>
+                <p id="contact-intro" data-en="Feel free to reach out for collaborations, freelance work, or any inquiries." data-ar="لا تتردد في التواصل لأي تعاون، أعمال حرة، أو استفسارات.">Feel free to reach out for collaborations, freelance work, or any inquiries.</p>
+                <p class="contact-email">Or email me directly at <a href="mailto:mayada45@hotmail.com?subject=Website%20Inquiry" title="Email Mayada">mayada45@hotmail.com</a></p>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-en="Name" data-ar="الاسم">Name</label>
+                        <input type="text" id="name" name="name" required aria-describedby="name-error">
+                        <span id="name-error" class="error-message" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                        <input type="email" id="email" name="email" required aria-describedby="email-error">
+                        <span id="email-error" class="error-message" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-en="Message" data-ar="الرسالة">Message</label>
+                        <textarea id="message" name="message" required aria-describedby="message-error"></textarea>
+                        <span id="message-error" class="error-message" aria-live="polite"></span>
+                    </div>
+                    <button type="submit" class="form-btn" data-en="Submit" data-ar="إرسال">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mayada Diyab. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="mailto:mayada45@hotmail.com?subject=Website%20Inquiry" aria-label="Email" title="Email Mayada"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:mayada45@hotmail.com?subject=Website%20Inquiry" class="footer-email" title="Email Mayada">mayada45@hotmail.com</a>
+                <a href="https://wa.me/971543706635" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/webcod30?igsh=MW1hYnJuODBnNXBp&utm_source=qr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assistant Chat Widget -->
+    <div id="assistant-toggle" class="assistant-toggle" aria-label="Open assistant" title="Order Assistant">
+        <div class="assistant-toggle-icon">🤖</div>
+        <div class="assistant-toggle-pulse"></div>
     </div>
-</nav>
+    <aside id="assistant" class="assistant" aria-hidden="true">
+        <header class="assistant-header">
+            <div class="assistant-header-content">
+                <div class="assistant-header-icon">✨</div>
+                <div>
+                    <strong>Order Assistant</strong>
+                    <p class="assistant-header-subtitle">Let me help you create something amazing</p>
+                </div>
+            </div>
+            <button id="assistant-close" class="assistant-close" aria-label="Close assistant">✕</button>
+        </header>
+        <div class="assistant-body">
+            <ul id="assistant-messages" class="assistant-messages" role="log" aria-live="polite"></ul>
+        </div>
+        <form id="assistant-form" class="assistant-form">
+            <div class="assistant-quick">
+                <button type="button" data-value="Web">Web</button>
+                <button type="button" data-value="AI">AI</button>
+                <button type="button" data-value="Other">Other</button>
+            </div>
+            <input id="assistant-input" type="text" placeholder="Describe what you want (or choose above)..." aria-label="Assistant input">
+            <div style="display:flex; gap:8px; align-items:center;">
+                <button type="button" id="assistant-attach" class="assistant-attach" title="Attach images">📎</button>
+                <input id="assistant-files" type="file" accept="image/*" multiple style="display:none">
+                <button type="submit" class="assistant-send">Send</button>
+            </div>
+        </form>
+    </aside>
 
-<main>
-
-<section id="home" class="section">
-    <div class="container">
-        <h1 data-en="Hi, I'm Mayada Diyab" data-ar="مرحبًا! أنا ميادة دياب">Hi, I'm Mayada Diyab</h1>
-        <h2 data-en="IT Student | Aspiring Web Developer | AI Enthusiast"
-            data-ar="طالبة تقنية المعلومات | مطورة ويب طموحة | مهتمة بالذكاء الاصطناعي"></h2>
-        <p data-en="Welcome to my personal website!"
-           data-ar="مرحبًا بك في موقعي الشخصي!"></p>
-        <a href="#about" class="cta-btn" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
+    <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <p id="modal-details">More details coming soon!</p>
+        </div>
     </div>
-</section>
 
-<section id="about" class="section">
-    <div class="container">
-        <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
-        <p data-en="Hello! I'm Mayada, a fourth-year IT student..."
-           data-ar="مرحبًا! أنا ميادة، طالبة في السنة الرابعة..."></p>
+    <script src="web.js"></script>
+
+    <!-- Admin Login & Dashboard -->
+    <!-- Login Form -->
+    <div class="login-container" id="loginContainer" style="display: none;">
+        <h1> Admin Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter admin password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
     </div>
-</section>
 
-<section id="portfolio" class="section">
-    <div class="container">
-        <h2 data-en="My Projects" data-ar="مشاريعي">My Projects</h2>
-        <div class="portfolio-grid">
-            <div class="project-card">
-                <h3>Kazooha AI</h3>
-                <p>AI project in progress</p>
+    <!-- Dashboard -->
+    <div class="dashboard-container" id="dashboardContainer" style="display: none;">
+        <div class="dashboard-header">
+            <h1> Admin Dashboard</h1>
+            <div>
+                <button class="refresh-btn" onclick="loadAllData()"> Refresh</button>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('messages')"> Messages <span id="msg-count">(0)</span></button>
+                <button class="tab-btn" onclick="switchTab('orders')"> Orders <span id="order-count">(0)</span></button>
+            </div>
+
+            <!-- Messages Tab -->
+            <div class="tab-content show" id="messagesTab">
+                <div id="messagesList"></div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="tab-content" id="ordersTab">
+                <div id="ordersList"></div>
             </div>
         </div>
     </div>
-</section>
-
-<section id="contact" class="section">
-    <div class="container">
-        <h2 data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h2>
-
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <textarea id="message" placeholder="Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </div>
-</section>
-
-</main>
-
-<footer>
-    <p>© 2025 Mayada Diyab</p>
-</footer>
-
-<!-- JS منفصل تمامًا -->
-<script type="module" src="web.js"></script>
-
 </body>
 </html>
+
