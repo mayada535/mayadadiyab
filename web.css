@@ -1264,4 +1264,17 @@ footer {
         max-height: calc(100vh - 240px);
     }
 }
+body {
+  background: white !important;
+  color: black !important;
+}
+
+section, .section {
+  display: block !important;
+  min-height: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 
