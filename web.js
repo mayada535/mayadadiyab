@@ -112,6 +112,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
+  // Certifications: tilt + expand interactions
+  const certCards = document.querySelectorAll('.cert-card');
+  certCards.forEach(card => {
+    // Mouse tilt
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotX = (y * 6).toFixed(2);
+      const rotY = (-x * 6).toFixed(2);
+      card.style.transform = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    });
+
+    // Reset on leave
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+
+    // Click / keyboard to toggle details
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.cert-link')) return; // allow link clicks
+      const expanded = card.classList.toggle('expanded');
+      card.setAttribute('aria-pressed', expanded ? 'true' : 'false');
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const expanded = card.classList.toggle('expanded');
+        card.setAttribute('aria-pressed', expanded ? 'true' : 'false');
+      }
+    });
+  });
+
   filterBtns.forEach(btn => btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
