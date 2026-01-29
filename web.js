@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Click / keyboard to toggle details
     card.addEventListener('click', (e) => {
-      if (e.target.closest('.cert-link')) return; // allow link clicks
       const expanded = card.classList.toggle('expanded');
       card.setAttribute('aria-pressed', expanded ? 'true' : 'false');
     });
@@ -418,4 +417,3 @@ window.addEventListener('load', () => {
     }
   }
 });
-
