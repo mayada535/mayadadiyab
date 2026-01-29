@@ -1,4 +1,4 @@
-//* CSS Variables for Professional Theming */
+/* CSS Variables for Professional Theming */
 :root {
     --primary-color: #0b5ed7; /* professional blue */
     --secondary-color: #0a58ca;
@@ -278,6 +278,57 @@ body.rtl {
 .contact-email a { color: #0b5ed7; text-decoration: underline; font-weight: 700; }
 
 .footer-email { color: #fff; margin-left: 0.75rem; text-decoration: none; font-weight: 600; }
+
+/* Contact Links */
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border-top: 3px solid var(--primary-color);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-link:hover {
+    box-shadow: 0 8px 32px rgba(11, 94, 215, 0.15);
+    transform: translateY(-4px);
+    border-top-color: #0a58ca;
+}
+
+.contact-link i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-link span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contact-link p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
 
 /* Portfolio */
 .portfolio-grid {
