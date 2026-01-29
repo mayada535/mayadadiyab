@@ -780,40 +780,7 @@ footer {
 
 .cert-info h3 { margin: 0; }
 
-.cert-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1.25rem 1.25rem 1.25rem;
-    border-top: 1px dashed rgba(15,23,42,0.04);
-    gap: 1rem;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.28s ease;
-}
-
-.cert-card.expanded .cert-meta {
-    max-height: 200px;
-    opacity: 1;
-    padding: 0.75rem 1.25rem 1.25rem 1.25rem;
-}
-
-.cert-date {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.cert-link {
-    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
-    color: #fff;
-    padding: 0.45rem 0.9rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    box-shadow: 0 6px 18px rgba(11,94,215,0.12);
-}
+/* Cert meta/details removed — kept minimal styles for card behavior */
 
 .cert-card {
     transform-style: preserve-3d;
@@ -829,7 +796,6 @@ footer {
 
 @media (max-width: 600px) {
     .cert-top { padding: 0.75rem 1rem; }
-    .cert-meta { padding: 0.6rem 1rem; }
 }
 
 /* Thumbnail image inside cert card */
