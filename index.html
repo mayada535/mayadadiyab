@@ -203,39 +203,7 @@
     </footer>
 
     <!-- AI Assistant Chat Widget -->
-    <div id="assistant-toggle" class="assistant-toggle" aria-label="Open assistant" title="Order Assistant">
-        <div class="assistant-toggle-icon">🤖</div>
-        <div class="assistant-toggle-pulse"></div>
-    </div>
-    <aside id="assistant" class="assistant" aria-hidden="true">
-        <header class="assistant-header">
-            <div class="assistant-header-content">
-                <div class="assistant-header-icon">✨</div>
-                <div>
-                    <strong>Order Assistant</strong>
-                    <p class="assistant-header-subtitle">Let me help you create something amazing</p>
-                </div>
-            </div>
-            <button id="assistant-close" class="assistant-close" aria-label="Close assistant">✕</button>
-        </header>
-        <div class="assistant-body">
-            <ul id="assistant-messages" class="assistant-messages" role="log" aria-live="polite"></ul>
-        </div>
-        <form id="assistant-form" class="assistant-form">
-            <div class="assistant-quick">
-                <button type="button" data-value="Web">Web</button>
-                <button type="button" data-value="AI">AI</button>
-                <button type="button" data-value="Other">Other</button>
-            </div>
-            <input id="assistant-input" type="text" placeholder="Describe what you want (or choose above)..." aria-label="Assistant input">
-            <div style="display:flex; gap:8px; align-items:center;">
-                <button type="button" id="assistant-attach" class="assistant-attach" title="Attach images">📎</button>
-                <input id="assistant-files" type="file" accept="image/*" multiple style="display:none">
-                <button type="submit" class="assistant-send">Send</button>
-            </div>
-        </form>
-    </aside>
-
+    
     <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-content">
             <button class="modal-close" aria-label="Close Modal">&times;</button>
@@ -289,8 +257,4 @@
     </div>
 </body>
 </html>
-
-
-</html>
-
 
