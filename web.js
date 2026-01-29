@@ -72,6 +72,42 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   sections.forEach(s => io.observe(s));
 
+  // Education Image: Enhanced animations
+  const educationImage = document.querySelector('.education-image');
+  const educationContainer = document.querySelector('.education-image-container');
+  
+  if (educationImage && educationContainer) {
+    // Parallax effect on mouse move
+    educationContainer.addEventListener('mousemove', (e) => {
+      const rect = educationContainer.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      
+      const moveX = x * 15;
+      const moveY = y * 15;
+      
+      educationImage.style.transform = `scale(1.08) rotate(1deg) translateX(${moveX}px) translateY(${moveY}px)`;
+    });
+
+    // Reset on mouse leave
+    educationContainer.addEventListener('mouseleave', () => {
+      educationImage.style.transform = 'scale(1) rotate(0deg) translateX(0) translateY(0)';
+    });
+
+    // Fade-in animation for the image on scroll
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          educationContainer.style.opacity = '1';
+          educationContainer.style.animation = 'imageSlideIn 0.8s ease-out forwards';
+          imageObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    imageObserver.observe(educationContainer);
+  }
+
   // Portfolio filter buttons
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
@@ -348,3 +384,4 @@ window.addEventListener('load', () => {
     }
   }
 });
+
