@@ -1,4 +1,4 @@
-/* CSS Variables for Professional Theming */
+//* CSS Variables for Professional Theming */
 :root {
     --primary-color: #0b5ed7; /* professional blue */
     --secondary-color: #0a58ca;
@@ -532,30 +532,265 @@ footer {
     gap: 1rem;
 }
 
-/* About Section Skills List */
-#skills-list {
-    list-style: none;
-    margin-top: 1.5rem;
+/* Education Section Styles */
+.education-list {
+    margin-top: 2rem;
 }
 
-#skills-list li {
-    padding: 0.75rem 0;
-    font-size: 1rem;
-    color: var(--text-color);
-    border-left: 3px solid var(--primary-color);
-    padding-left: 1rem;
+.education-card {
+    background: var(--card-bg);
+    border-left: 4px solid var(--primary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
     transition: var(--transition);
 }
 
-#skills-list li:hover {
-    transform: translateX(10px);
-    border-left-color: #0a58ca;
+.education-card:hover {
+    box-shadow: 0 8px 32px rgba(11, 94, 215, 0.15);
+    transform: translateY(-2px);
 }
 
-#skills-list i {
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.education-header h3 {
+    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.education-year {
+    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.education-institution {
+    color: #0b5ed7;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.education-details {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.education-highlights {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0 0 0;
+}
+
+.education-highlights li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.education-highlights li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
     color: var(--primary-color);
-    margin-right: 0.5rem;
+    font-weight: bold;
     font-size: 1.1rem;
+}
+
+/* Skills Section Styles */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    padding: 1.75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 3px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    box-shadow: 0 8px 32px rgba(11, 94, 215, 0.15);
+    transform: translateY(-4px);
+    border-top-color: #0a58ca;
+}
+
+.skill-category h3 {
+    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-list li {
+    padding: 0.65rem 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: var(--transition);
+}
+
+.skills-list li:hover {
+    transform: translateX(8px);
+    color: var(--primary-color);
+}
+
+.skills-list i {
+    color: var(--primary-color);
+    min-width: 20px;
+    font-size: 1rem;
+}
+
+/* Education Section Styles */
+.education-list {
+    margin-top: 2rem;
+}
+
+.education-card {
+    background: var(--card-bg);
+    border-left: 4px solid var(--primary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.education-card:hover {
+    box-shadow: 0 8px 32px rgba(11, 94, 215, 0.15);
+    transform: translateY(-2px);
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.education-header h3 {
+    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.education-year {
+    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.education-institution {
+    color: #0b5ed7;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.education-details {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.education-highlights {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0 0 0;
+}
+
+.education-highlights li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.education-highlights li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Skills Grid Layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    padding: 1.75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 3px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    box-shadow: 0 8px 32px rgba(11, 94, 215, 0.15);
+    transform: translateY(-4px);
+    border-top-color: #0a58ca;
+}
+
+.skill-category h3 {
+    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 /* Responsive */
