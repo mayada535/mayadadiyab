@@ -38,6 +38,17 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+@keyframes imageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 body.rtl {
     direction: rtl;
     font-family: var(--font-arabic);
@@ -591,16 +602,51 @@ footer {
 .education-card {
     background: var(--card-bg);
     border-left: 4px solid var(--primary-color);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
     margin-bottom: 1.5rem;
     transition: var(--transition);
+    overflow: hidden;
 }
 
 .education-card:hover {
-    box-shadow: 0 8px 32px rgba(11, 94, 215, 0.15);
-    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(11, 94, 215, 0.2);
+    transform: translateY(-4px);
+}
+
+.education-image-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f4ff, #e6f0ff);
+}
+
+.education-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: block;
+}
+
+.education-image-container:hover .education-image {
+    transform: scale(1.08) rotate(1deg);
+}
+
+.education-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(11, 94, 215, 0.1) 0%, rgba(10, 88, 202, 0.05) 100%);
+    transition: opacity 0.3s;
+}
+
+.education-image-container:hover .education-image-overlay {
+    opacity: 0.7;
 }
 
 .education-header {
@@ -610,6 +656,7 @@ footer {
     margin-bottom: 0.75rem;
     flex-wrap: wrap;
     gap: 1rem;
+    padding: 2rem 2rem 0 2rem;
 }
 
 .education-header h3 {
@@ -637,18 +684,21 @@ footer {
     font-weight: 600;
     font-size: 0.95rem;
     margin: 0.5rem 0 0.5rem 0;
+    padding: 0 2rem;
 }
 
 .education-details {
     color: #666;
     font-size: 0.9rem;
     margin-bottom: 1rem;
+    padding: 0 2rem;
 }
 
 .education-highlights {
     list-style: none;
     padding-left: 0;
     margin: 1rem 0 0 0;
+    padding: 0 2rem 2rem 2rem;
 }
 
 .education-highlights li {
@@ -725,90 +775,6 @@ footer {
     color: var(--primary-color);
     min-width: 20px;
     font-size: 1rem;
-}
-
-/* Education Section Styles */
-.education-list {
-    margin-top: 2rem;
-}
-
-.education-card {
-    background: var(--card-bg);
-    border-left: 4px solid var(--primary-color);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    margin-bottom: 1.5rem;
-    transition: var(--transition);
-}
-
-.education-card:hover {
-    box-shadow: 0 8px 32px rgba(11, 94, 215, 0.15);
-    transform: translateY(-2px);
-}
-
-.education-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.75rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.education-header h3 {
-    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-.education-year {
-    background: linear-gradient(135deg, #0b5ed7, #0a58ca);
-    color: #fff;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.education-institution {
-    color: #0b5ed7;
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin: 0.5rem 0 0.5rem 0;
-}
-
-.education-details {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.education-highlights {
-    list-style: none;
-    padding-left: 0;
-    margin: 1rem 0 0 0;
-}
-
-.education-highlights li {
-    padding: 0.5rem 0 0.5rem 1.5rem;
-    position: relative;
-    color: var(--text-color);
-    font-size: 0.95rem;
-}
-
-.education-highlights li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.1rem;
 }
 
 /* Skills Grid Layout */
